@@ -134,3 +134,12 @@ label[aria-disabled] {
   float: left;
   margin: 0;
 }
+
+@media screen and (max-width:768px) {
+
+  .show-item {
+    width: 45%;
+  }
+
+
+}
