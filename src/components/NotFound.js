@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { Navigator } from 'react-router-dom';
+import React from 'react';
 
 export default function NotFound() {
 

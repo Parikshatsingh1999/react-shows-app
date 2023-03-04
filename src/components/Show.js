@@ -60,7 +60,7 @@ export default function Show() {
                                     {
                                         showData.pictures.map((pic, index) => (
                                             <div className='single-pic' key={index}>
-                                                <img src={pic} />
+                                                <img src={pic} alt={showData.name} />
                                             </div>
                                         ))
                                     }
