@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 
 export default function Main(props) {
-
     const baseUrl = props.baseUrl;
     const params = useParams();
     const search = props.search;
