@@ -41,7 +41,9 @@ export default function Show() {
                     <h1> {name.toUpperCase()} </h1>
                     <div className='show-wrapper-main'>
                         <div className='container'>
+                         <div className='topSection'>  
                             <img src={showData.image_path} alt={showData.name} />
+                            <div className='divsss'>
                             <h3> Ratings - {Number(showData.rating).toFixed(2)}/10 </h3>
                             <h4> Started - {showData.start_date} </h4>
                             {
@@ -54,7 +56,9 @@ export default function Show() {
                                 }
                             </div>
                             }
-                            <p> <b> {showData.description} </b> </p>
+                            </div>
+                             </div>
+                            <p> {showData.description} </p>
                             {
                                 showData.pictures && <div className='show-thumbs-box'>
                                     {
@@ -86,9 +90,7 @@ export default function Show() {
 
                     </div>
                 </div>
-
             }
-
             {
                 hasError && !loading && <div>
                     Cant Get Show Details, Please try again later!

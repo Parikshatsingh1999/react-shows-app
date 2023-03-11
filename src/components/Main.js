@@ -44,7 +44,7 @@ export default function Main(props) {
 
     return (
         <div>
-            <h3> Shows Details </h3>
+            <h3 class="shows_title"> Shows Details </h3>
             <div className='show-listings'>
 
                 {
