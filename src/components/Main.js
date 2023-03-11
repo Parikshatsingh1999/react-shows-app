@@ -5,6 +5,7 @@ export default function Main(props) {
     const baseUrl = props.baseUrl;
     const params = useParams();
     const search = props.search;
+    const heading = "Most Popular";
     const query = search ? `q=${params.query}&` : "";
     const [showsData, setShowsData] = useState(props.showsData);
     const [pageNumber, setPageNumber] = useState(1);
@@ -43,7 +44,7 @@ export default function Main(props) {
 
     return (
         <div>
-            <h3 class="shows_title"> Shows Details </h3>
+            <h3 className="shows_title"> {!query ? heading : `Showing Result for ${params.query}`}  </h3>
             <div className='show-listings'>
 
                 {

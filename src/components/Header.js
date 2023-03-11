@@ -14,6 +14,7 @@ export default function Header() {
     }
 
     const sendHome = () => {
+        queryRef.current.value = "";
         navigate("/");
     }
 
@@ -25,14 +26,14 @@ export default function Header() {
                     <h2 onClick={() => sendHome()}>  {name} </h2>
                 </div>
             </div>
-            <div class="main_page">
-                <div class="images">
-                    <img src={bgimg} alt="bg-image" class="desktop" />
-                    <img src={bgimgM} alt="bg-image" class="mobiled" />
+            <div className="main_page">
+                <div className="images">
+                    <img src={bgimg} alt="bg-image" className="desktop" />
+                    <img src={bgimgM} alt="bg-image" className="mobiled" />
                 </div>
-                <div class="content_part">
+                <div className="content_part">
                     <div>
-                        <h1 class="main_headingss">Search for Unlimited movies, TV shows and more.</h1>
+                        <h1 className="main_headingss">Search for Unlimited movies, TV shows and more.</h1>
                     </div>
                     <div className='search-box head-item'>
                         <input ref={queryRef} />
