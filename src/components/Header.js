@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import img from "../assets/tv-logo.jpg";
 import bgimg from "../assets/bg-image.jpg";
 import bgimgM from "../assets/images.jpeg";
 import { useNavigate } from "react-router-dom";
-export default function Header() {
 
+export default function Header() {
     const name = "TV Shows";
-    const [query, setQuery] = useState("");
+    const queryRef = useRef()
     const navigate = useNavigate();
 
     const handleSearch = () => {
-        navigate(`/search/${query}`);
+        navigate(`/search/${queryRef.current.value}`);
     }
 
     const sendHome = () => {
-        setQuery("");
         navigate("/");
     }
 
@@ -38,6 +37,13 @@ export default function Header() {
         <div className='search-box head-item'>
                 <input placeholder='Search for your favourite shows' value={query} onInput={(e) => setQuery(e.target.value)} />
                 <button onClick={() => handleSearch()}> Search </button>
+            </div>
+            <div className='search-box head-item'>
+                <input ref={queryRef} />
+                <button onClick={() => handleSearch()}> Search </button>
+            </div>
+            <div className='title-box head-item'>
+                <h2 onClick={() => sendHome()}>  {name} </h2>
             </div>
             </div>
             </div>
