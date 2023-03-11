@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import img from "../assets/tv-logo.jpg";
-import bgimg from "../assets/bg-image.jpg";
-import bgimgM from "../assets/images.jpeg";
+import bgimg from "../assets/desktop-image.jpeg";
+import bgimgM from "../assets/mobile-image.jpeg";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
@@ -36,12 +36,10 @@ export default function Header() {
                         <h1 className="main_headingss">Search for Unlimited movies, TV shows and more.</h1>
                     </div>
                     <div className='search-box head-item'>
-                        <input ref={queryRef} />
+                        <input ref={queryRef} placeholder="Search Your fav shows"/>
                         <button onClick={() => handleSearch()}> Search </button>
                     </div>
-                    <div className='title-box head-item'>
-                        <h2 onClick={() => sendHome()}>  {name} </h2>
-                    </div>
+                   
                 </div>
             </div>
         </>

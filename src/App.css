@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: #282c34;
+  background: linear-gradient(to left, #A43931, #1D4350);
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -43,25 +43,26 @@ img {
   flex-wrap: wrap;
     justify-content: space-between;
     position: absolute; 
-    width: fit-content;
-   
+    width: 100%;
     z-index: 1;
     background: rgba(0,0,0,0.5);
     align-items: center;
-    padding: 10px 70px;
+    padding: 5px 0px;
 
 }
-.images img{width:100%;height:auto;}
+.images img{width:100%;height:auto;opacity: .8;}
 
 .logo-box.head-item {
   width: 12%;
     text-align: initial;
     line-height: 0;
+    padding-left: 5%;
 }
 
 .title-box.head-item {
   width: 30%;
   text-align: right;
+  padding-right: 5%;
 }
 
 .title-box.head-item h2 {
@@ -71,12 +72,12 @@ img {
 .show-listings {
   padding-top: 1%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     row-gap: 2.5em;
     max-width: 90%;
     margin: auto;
-    column-gap: 30px;
+    column-gap: 3%;
     margin-bottom: 2%; 
 }
 
@@ -95,7 +96,7 @@ a {
 }
 
 .load-more-box {
-  margin-top: 4%;
+  margin:5rem 0 2rem;
 }
 
 .title-box {
@@ -215,6 +216,7 @@ label[aria-disabled] {
 }
 .images {
   width: 100%;
+  background-color: #000;
 }
 .search-box.head-item {
   width: 100%;
@@ -287,9 +289,7 @@ button{
   .title-box.head-item h2 {
     font-size: 4vw;
 }
-  .main-wrapper-header {
-    padding: 3px 20px 5px;
-}
+  
 h1.main_headingss {
   font-size: 6.5vw;
   line-height: 8.4vw;}
