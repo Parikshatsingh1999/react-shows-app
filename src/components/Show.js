@@ -28,8 +28,6 @@ export default function Show() {
     }, [name]);
 
     return (
-
-
         <div className='show-wrapper'>
             {
                 loading && <div>
@@ -41,23 +39,23 @@ export default function Show() {
                     <h1> {name.toUpperCase()} </h1>
                     <div className='show-wrapper-main'>
                         <div className='container'>
-                         <div className='topSection'>  
-                            <img src={showData.image_path} alt={showData.name} />
-                            <div className='divsss'>
-                            <h3> Ratings - {Number(showData.rating).toFixed(2)}/10 </h3>
-                            <h4> Started - {showData.start_date} </h4>
-                            {
-                                showData.network && <h3>Aired On- {showData.network} </h3>
-                            }
-                            {showData.genres && <div className='genre-list'>
-                                <label> Genres - </label>
-                                {
-                                    showData.genres.map((item) => (<span key={item}> {item} </span>))
-                                }
+                            <div className='topSection'>
+                                <img src={showData.image_path} alt={showData.name} />
+                                <div className='divsss'>
+                                    <h3> Ratings - {Number(showData.rating).toFixed(2)}/10 </h3>
+                                    <h4> Started - {showData.start_date} </h4>
+                                    {
+                                        showData.network && <h3>Aired On- {showData.network} </h3>
+                                    }
+                                    {showData.genres && <div className='genre-list'>
+                                        <label> Genres - </label>
+                                        {
+                                            showData.genres.map((item) => (<span key={item}> {item} </span>))
+                                        }
+                                    </div>
+                                    }
+                                </div>
                             </div>
-                            }
-                            </div>
-                             </div>
                             <p> {showData.description} </p>
                             {
                                 showData.pictures && <div className='show-thumbs-box'>
@@ -71,7 +69,7 @@ export default function Show() {
                                 </div>
                             }
                             {
-                                showData.episodes && <div>
+                                showData.episodes && !!showData.episodes.length && <div>
                                     <h2> Episodes </h2>
                                     <div className='episodes-wrapper'> {
                                         showData.episodes.map((episode, index) => (
@@ -87,7 +85,6 @@ export default function Show() {
                                 </div>
                             }
                         </div>
-
                     </div>
                 </div>
             }

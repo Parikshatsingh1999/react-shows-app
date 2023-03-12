@@ -28,18 +28,17 @@ export default function Header() {
             </div>
             <div className="main_page">
                 <div className="images">
-                    <img src={bgimg} alt="bg-image" className="desktop" />
-                    <img src={bgimgM} alt="bg-image" className="mobiled" />
+                    <img src={bgimg} alt="backgound" className="desktop" />
+                    <img src={bgimgM} alt="background" className="mobiled" />
                 </div>
                 <div className="content_part">
                     <div>
                         <h1 className="main_headingss">Search for Unlimited movies, TV shows and more.</h1>
                     </div>
                     <div className='search-box head-item'>
-                        <input ref={queryRef} placeholder="Search Your fav shows"/>
+                        <input ref={queryRef} placeholder="Search Your fav shows" />
                         <button onClick={() => handleSearch()}> Search </button>
                     </div>
-                   
                 </div>
             </div>
         </>
