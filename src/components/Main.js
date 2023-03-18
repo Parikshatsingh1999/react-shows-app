@@ -20,7 +20,7 @@ export default function Main(props) {
     useEffect(() => {
         setShowsData([]);
         setPageNumber(1);
-    }, [search, baseUrl, query]);
+    }, [search, query]);
 
 
     useEffect(() => {
@@ -42,7 +42,7 @@ export default function Main(props) {
             setLoading(false);
         });
 
-    }, [pageNumber])
+    }, [pageNumber, baseUrl, query])
 
     return (
         <div>
@@ -85,5 +85,4 @@ export default function Main(props) {
             </div>
         </div>
     )
-
 }
