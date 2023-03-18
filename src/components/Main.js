@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 
 export default function Main(props) {
-    const baseUrl = props.baseUrl;
+
     const params = useParams();
     const search = props.search;
     const heading = "Most Popular";
@@ -12,22 +12,21 @@ export default function Main(props) {
     const [loading, setLoading] = useState(null);
     const [hasError, setError] = useState(null);
     const [lastPage, setLastPage] = useState(false);
+    const baseUrl = `${props.baseUrl}${query}`;
 
     const loadMore = () => {
-        setPageNumber(prevValue => prevValue + 1);
+        setPageNumber(prevValue => {
+            getData(prevValue + 1);
+            return prevValue + 1
+        });
     }
 
-    useEffect(() => {
-        setShowsData([]);
-        setPageNumber(1);
-    }, [search, query]);
 
-
-    useEffect(() => {
+    const getData = useCallback((page) => {
         setLoading(true);
         setError(false);
         setLastPage(false);
-        fetch(`${baseUrl}${query}page=${pageNumber}`).then(res => res.json()).then(res => {
+        fetch(`${baseUrl}page=${page}`).then(res => res.json()).then(res => {
             if (pageNumber >= res.pages) {
                 setLastPage(true);
             }
@@ -42,7 +41,14 @@ export default function Main(props) {
             setLoading(false);
         });
 
-    }, [pageNumber, baseUrl, query])
+    }, [baseUrl, pageNumber]);
+
+
+    useEffect(() => {
+        setShowsData([]);
+        setPageNumber(1);
+        getData(1);
+    }, [baseUrl])
 
     return (
         <div>
@@ -66,11 +72,11 @@ export default function Main(props) {
             </div >
             <div className='loading-box'>
                 {
-                    hasError && <div> No Result Found. </div>
+                    !!hasError && <div> No Result Found. </div>
                 }
                 {
                     !hasError && <div className='loading-wrapper'>
-                        {loading ? <div className='loading-state'>
+                        {!!loading ? <div className='loading-state'>
                             loading...
                         </div> : <div className='load-more-box'>
                             {!lastPage ?
