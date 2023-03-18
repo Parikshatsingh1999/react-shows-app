@@ -10,7 +10,9 @@ export default function Header() {
     const navigate = useNavigate();
 
     const handleSearch = () => {
-        navigate(`/search/${queryRef.current.value}`);
+        if (queryRef.current.value.trim().length) {
+            navigate(`/search/${queryRef.current.value}`);
+        }
     }
 
     const sendHome = () => {
